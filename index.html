@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishal Kumar — RCM Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#F2EFE7;
+    --ink-soft:#ABA69B;
+    --bg:#0B0C0C;
+    --panel:#141514;
+    --rule:#2B2C2A;
+    --teal:#7FAE9C;
+    --amber:#D9A054;
+    --max:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', Arial, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--teal);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  header.hero{
+    border-bottom:1px solid var(--rule);
+    padding:64px 0 48px;
+  }
+  .hero-top{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:32px;
+  }
+  .hero-name{font-size:clamp(2.2rem, 5vw, 3.1rem); line-height:1.05;}
+  .hero-role{color:var(--teal); font-size:1.05rem; margin-top:10px; font-weight:500;}
+  nav ul{
+    list-style:none; display:flex; gap:22px; margin:0; padding:0;
+    font-size:0.92rem;
+  }
+  nav a{text-decoration:none; color:var(--ink-soft);}
+  nav a:hover{color:var(--teal);}
+
+  .contact-line{
+    margin-top:8px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .contact-line span{white-space:nowrap;}
+
+  .hero-lede{
+    max-width:66ch;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin-top:22px;
+  }
+
+  section.metrics{
+    padding:44px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .metric{
+    padding:0 20px;
+    border-left:1px solid var(--rule);
+  }
+  .metric:nth-child(3n+1){border-left:none; padding-left:0;}
+  .metric .num{
+    font-family:'Fraunces', serif;
+    font-size:2.2rem;
+    color:var(--amber);
+    line-height:1;
+  }
+  .metric .label{
+    margin-top:8px;
+    font-size:0.86rem;
+    color:var(--ink-soft);
+  }
+
+  section{padding:56px 0;}
+  section.divider{border-bottom:1px solid var(--rule);}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:32px;
+    gap:16px;
+  }
+  .section-head h2{font-size:1.6rem;}
+  .section-head .index{color:var(--rule); font-family:'Fraunces', serif; font-size:1.1rem;}
+
+  .role{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .role:first-of-type{border-top:1px solid var(--rule);}
+  .role-date{
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    padding-top:3px;
+  }
+  .role-title{font-size:1.15rem; font-weight:500; font-family:'Fraunces', serif;}
+  .role-org{color:var(--teal); font-size:0.95rem; margin-top:2px; margin-bottom:12px;}
+  .role ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.96rem;}
+  .role li{margin-bottom:6px;}
+  .role .wins{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--rule);
+  }
+  .role .wins-label{
+    font-size:0.82rem;
+    color:var(--amber);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  .skill-groups{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:6px 40px;
+  }
+  .skill-group ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:0.96rem;
+  }
+  .skill-group li{margin-bottom:10px;}
+
+  .edu{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:18px 0;
+    border-top:1px solid var(--rule);
+  }
+  .edu:first-of-type{border-top:1px solid var(--rule);}
+  .edu-date{color:var(--ink-soft); font-size:0.88rem;}
+  .edu-name{font-weight:500; font-family:'Fraunces', serif; font-size:1.05rem;}
+  .edu-place{color:var(--ink-soft); font-size:0.9rem; margin-top:2px;}
+
+  footer{
+    padding:40px 0 60px;
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  @media (max-width:720px){
+    .metrics-grid{grid-template-columns:repeat(2, 1fr); row-gap:24px;}
+    .metric:nth-child(3n+1){border-left:1px solid var(--rule); padding-left:20px;}
+    .metric:nth-child(odd){border-left:none; padding-left:0;}
+    .role, .edu{grid-template-columns:1fr;}
+    .role-date, .edu-date{padding-top:0;}
+    .skill-groups{grid-template-columns:1fr;}
+    nav ul{gap:14px; flex-wrap:wrap;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1 class="hero-name">Vishal Kumar</h1>
+        <div class="hero-role">RCM Specialist</div>
+      </div>
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="#metrics">Highlights</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="contact-line">
+      <span>Hyderabad, India</span>
+      <span>+91 89773 05411</span>
+      <span><a href="mailto:Vkumargopa26@gmail.com">Vkumargopa26@gmail.com</a></span>
+    </div>
+    <p class="hero-lede">With over 10 years of experience in healthcare claims, I specialize in reviewing, auditing, and correcting claims to ensure accuracy and compliance. I identify process gaps and implement effective solutions to improve billing and claims workflows. My expertise includes medical coding, payment posting, billing, and claims quality assurance. I focus on maintaining high standards that support accurate, compliant, and reliable outcomes for payers and regulatory requirements.</p>
+  </div>
+</header>
+
+<section class="metrics" id="metrics">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Key Highlights</h2>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="num">99%+</div>
+        <div class="label">Quality score sustained across multiple audit cycles</div>
+      </div>
+      <div class="metric">
+        <div class="num">98%</div>
+        <div class="label">Accuracy in claims submission audits</div>
+      </div>
+      <div class="metric">
+        <div class="num">90→97%</div>
+        <div class="label">Clean claims rate improved through documentation review</div>
+      </div>
+      <div class="metric">
+        <div class="num">100+</div>
+        <div class="label">Claims resolved weekly, 95%+ resolution rate</div>
+      </div>
+      <div class="metric">
+        <div class="num">97%+</div>
+        <div class="label">Coding accuracy</div>
+      </div>
+      <div class="metric">
+        <div class="num">98%+</div>
+        <div class="label">Payment posting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="index">Focus areas</span>
+    </div>
+
+    <div class="skill-groups">
+      <div class="skill-group">
+        <ul>
+          <li>Healthcare Claims &amp; Medical Billing</li>
+          <li>Claims Auditing &amp; Quality Assurance</li>
+          <li>Medical Coding &amp; Documentation Review</li>
+          <li>AR Management &amp; Claims Follow-up</li>
+          <li>Denial, Rejection &amp; Appeals Management</li>
+          <li>Payment Posting &amp; Reconciliation</li>
+          <li>Revenue Cycle Management (RCM)</li>
+          <li>HIPAA &amp; CMS Compliance</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <ul>
+          <li>Root Cause &amp; Trend Analysis</li>
+          <li>Process Improvement &amp; Corrective Actions</li>
+          <li>KPI, Reporting &amp; Data Analysis</li>
+          <li>Audit Readiness &amp; Compliance</li>
+          <li>Payer Communication &amp; Portal Management</li>
+          <li>Epic, Cerner &amp; Bryan Health Embillz</li>
+          <li>Staff Training &amp; Mentoring</li>
+          <li>Cross-functional Collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="index">05 roles</span>
+    </div>
+
+    <div class="role">
+      <div class="role-date">May 2024 — Present</div>
+      <div>
+        <div class="role-title">Sr. Quality Analyst (Medical coding, Claims follow up)</div>
+        <div class="role-org">Reventics, Hyderabad</div>
+        <ul>
+          <li>Reviews and audits AR claims for accuracy, completeness, and compliance with payer and regulatory guidelines.</li>
+          <li>Evaluates claim denials, rejections, and payment discrepancies to ensure proper resolution.</li>
+          <li>Identifies trends across errors, denials, underpayments, and overpayments.</li>
+          <li>Provides feedback and training to staff based on audit findings and process changes.</li>
+        </ul>
+        <div class="wins">
+          <div class="wins-label">Key accomplishments</div>
+          <ul>
+            <li>Led implementation of a new audit tool that increased review efficiency.</li>
+            <li>Recognized by leadership for a 99%+ quality score across multiple audit cycles.</li>
+            <li>Helped hit departmental KPI targets, including 98%+ accuracy in submission audits.</li>
+            <li>Commended for documentation quality during external audit readiness reviews.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">Feb 2023 — May 2024</div>
+      <div>
+        <div class="role-title">Sr. Claims Analyst</div>
+        <div class="role-org">AGS, Hyderabad</div>
+        <ul>
+          <li>Reviewed, processed, and analyzed insurance claims for timely, accurate reimbursement.</li>
+          <li>Followed up on outstanding claims via payer portals, calls, and written correspondence.</li>
+          <li>Investigated and resolved claim denials, rejections, and underpayments.</li>
+          <li>Submitted corrected claims and appeals with supporting documentation.</li>
+          <li>Monitored aged AR reports and prioritized high-dollar, time-sensitive claims.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">May 2022 — Feb 2023</div>
+      <div>
+        <div class="role-title">Quality Control Analyst</div>
+        <div class="role-org">Sutherland Global Solutions, Hyderabad</div>
+        <ul>
+          <li>Analyzed denial and rejection trends to identify root causes and recommend fixes.</li>
+          <li>Prepared and presented performance reports to management.</li>
+          <li>Contributed to internal quality audits and corrective action plans.</li>
+          <li>Resolved claim issues directly with insurers via phone, fax, and payer portals.</li>
+        </ul>
+        <div class="wins">
+          <div class="wins-label">Key accomplishments</div>
+          <ul>
+            <li>Resolved 100+ claims weekly, maintaining a 95%+ resolution rate.</li>
+            <li>Raised clean claims rate from 85% to 97% by tightening documentation with coding and billing teams.</li>
+            <li>Named Top Performer for consistently exceeding monthly cash collection targets.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">Sep 2020 — Apr 2022</div>
+      <div>
+        <div class="role-title">Sr. Claims Analyst</div>
+        <div class="role-org">Ascent Business Solutions, Hyderabad</div>
+        <ul>
+          <li>Negotiated reimbursement rates with third-party payers while maintaining strong relationships.</li>
+          <li>Tracked performance metrics including turnaround time and payment accuracy.</li>
+          <li>Reviewed denied claims for proper documentation before resubmission.</li>
+          <li>Trained junior analysts on proper claim processing techniques.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">Mar 2017 — Aug 2020</div>
+      <div>
+        <div class="role-title">Claims Analyst &amp; Claims Adjuster</div>
+        <div class="role-org">Hinduja Global Solutions, Hyderabad</div>
+        <ul>
+          <li>Coordinated with other departments to resolve complex claims issues.</li>
+          <li>Analyzed coverage and communicated coverage positions to move claims forward.</li>
+          <li>Reviewed medical documentation for diagnosis accuracy before approving payment.</li>
+          <li>Performed detailed audits of claims documents for accuracy and completeness.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="index">Hyderabad</span>
+    </div>
+    <div class="edu">
+      <div class="edu-date">2014 — 2017</div>
+      <div>
+        <div class="edu-name">Teegala Krishna Reddy College of Engineering and Technology</div>
+        <div class="edu-place">Hyderabad</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="edu-date">2010 — 2014</div>
+      <div>
+        <div class="edu-name">Bhavans Vivekanand Degree College</div>
+        <div class="edu-place">Hyderabad</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="edu-date">2008 — 2010</div>
+      <div>
+        <div class="edu-name">Little Flower Junior College</div>
+        <div class="edu-place">Hyderabad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <span>Vishal Kumar</span>
+    <span><a href="mailto:Vkumargopa26@gmail.com">Vkumargopa26@gmail.com</a> · +91 89773 05411 · Hyderabad, India</span>
+  </div>
+</footer>
+
+</body>
+</html>
